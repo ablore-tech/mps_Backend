@@ -37,6 +37,6 @@ class RegisterController extends Controller
             $user->save();
         }
 		
-		return response()->json($user, 200);
+		return response()->json(['success' => true,'message' => $user], 200);
     }
 }

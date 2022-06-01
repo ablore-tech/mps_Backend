@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('models', function (Blueprint $table) {
+        Schema::create('devices', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->text('image');
+            $table->text('device_uid');
+            $table->text('max_price');
+            $table->text('photo');
+            $table->text('variations');
+            $table->text('variable_data');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('models');
+        Schema::dropIfExists('devices');
     }
 };
