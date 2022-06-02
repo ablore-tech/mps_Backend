@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\DeviceController;
 use App\Http\Controllers\Api\PhoneModelController;
+use App\Http\Controllers\Api\SeriesController;
 use App\Http\Controllers\Api\VersionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,11 +32,13 @@ Route::group(['middleware' => 'guest:sanctum'], function () {
 
     Route::resource('models', PhoneModelController::class);
 
+    Route::resource('series', SeriesController::class);
+
     Route::get('brands/model/{brand_id}', [PhoneModelController::class, 'filterModel']);
 
 	Route::get('models/series/{series_id}', [PhoneModelController::class, 'seriesShow']);
 
-    // Route::get('brands/series/{brand_id}', 'API\serriesController@show_series');
+    Route::get('brands/series/{brand_id}', [SeriesController::class, 'showSeries']);
 
     Route::get('devices/details/{model_id}', [DeviceController::class, 'filterDetails']);
 

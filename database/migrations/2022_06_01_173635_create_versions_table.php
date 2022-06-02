@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('versions', function (Blueprint $table) {
             $table->id();
-            $table->text('version_no');
-            $table->text('version_description');
-            $table->text('type');
+            $table->text('version_no')->nullable();
+            $table->text('version_description')->nullable();
+            $table->text('type')->nullable();
             $table->timestamps();
         });
     }

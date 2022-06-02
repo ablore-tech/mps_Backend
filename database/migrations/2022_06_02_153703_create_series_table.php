@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('devices', function (Blueprint $table) {
+        Schema::create('series', function (Blueprint $table) {
             $table->id();
-            $table->text('device_uid');
-            $table->text('max_price');
-            $table->text('photo');
-            $table->text('variations');
-            $table->text('variable_data');
+            $table->foreignId('brand_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devices');
+        Schema::dropIfExists('series');
     }
 };
