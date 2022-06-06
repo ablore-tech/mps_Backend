@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('phone_models', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brand_id')->references('id')->on('brands')->onDelete('cascade');
-            $table->foreignId('series_id')->references('id')->on('series')->onDelete('cascade');
+            $table->foreignId('series_id')->nullable()->references('id')->on('series')->onDelete('cascade');
             $table->text('name')->nullable();
             $table->text('image')->nullable();
             $table->text('description')->nullable();

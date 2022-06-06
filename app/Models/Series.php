@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Series extends Model
 {
     use HasFactory;
+
+    public function phoneModel()
+    {
+       return $this->hasMany(PhoneModel::class);
+    }
 }

@@ -102,7 +102,7 @@ class PhoneModelController extends Controller
 
     public function seriesShow($series_id)
     {		
-		$getmodels =  PhoneModel::where('series_id', '=', $series_id)->get();
+		$getmodels =  PhoneModel::where('series_id', '=', $series_id)->with('series:id,name')->get();
 		 
 		 if($getmodels == '[]'){
             return response()->json(['message' => "Model not Found"], 200);
