@@ -16,10 +16,14 @@ class PhoneModelResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'brand_id' => $this->brand_id,
+            'series_id' => $this->series_id,
             'name' => $this->name,
             'image' => $this->image,
             'description' => $this->description,
-            'series_name' => $this->series->name
+            'series_name' => $this->series->name,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }
