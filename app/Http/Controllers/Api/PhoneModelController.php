@@ -88,17 +88,17 @@ class PhoneModelController extends Controller
 
     public function filterModel($brand_id)
     {		
-		$getmodels =  PhoneModel::where('brand_id', '=', $brand_id)->get();
+		$phoneModels = PhoneModel::where('brand_id', '=', $brand_id)->get();
 		
-		if($getmodels == '[]'){
+		if($phoneModels == '[]'){
             return response()->json(['message' => "Model not Found"], 200);
         }
 		 
-        if(is_null($getmodels)){
+        if(is_null($phoneModels)){
             return response()->json(['message' => "Model not Found"], 404);
         }
 
-        return response()->json($getmodels, 200);
+        return response()->json(new PhoneModelCollection($phoneModels), 200);
     }
 
     public function seriesShow($series_id)

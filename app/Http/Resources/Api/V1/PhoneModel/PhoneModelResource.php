@@ -21,7 +21,7 @@ class PhoneModelResource extends JsonResource
             'name' => $this->name,
             'image' => $this->image,
             'description' => $this->description,
-            'series_name' => $this->series->name,
+            'series_name' => $this->series ? $this->series->name : null,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
