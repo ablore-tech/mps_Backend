@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\V1\PhoneModel\PhoneModelCollection;
 use App\Models\PhoneModel;
 use Illuminate\Http\Request;
 
@@ -102,17 +103,17 @@ class PhoneModelController extends Controller
 
     public function seriesShow($series_id)
     {		
-		$getmodels =  PhoneModel::where('series_id', '=', $series_id)->with('series:id,name')->get();
+		$phoneModels =  PhoneModel::where('series_id', '=', $series_id)->with('series:id,name')->get();
 		 
-		 if($getmodels == '[]'){
+		 if($phoneModels == '[]'){
             return response()->json(['message' => "Model not Found"], 200);
         }
 		 
 		 
-        if(is_null($getmodels)){
+        if(is_null($phoneModels)){
             return response()->json(['message' => "Model not Found"], 404);
         }
 
-        return response()->json($getmodels, 200);
+        return response()->json(new PhoneModelCollection($phoneModels), 200);
     }
 }
