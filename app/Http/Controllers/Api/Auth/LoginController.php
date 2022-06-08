@@ -31,6 +31,6 @@ class LoginController extends Controller
             }
             return response()->json('Otp is expired', 422);
         }
-		return response()->json(['success' => true,'message' => 'Otp is not verified successfully'], 201);
+		return response()->json(['success' => true,'message' => 'Otp is not verified successfully'], 200);
     } 
 }
