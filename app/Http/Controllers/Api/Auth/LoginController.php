@@ -29,8 +29,8 @@ class LoginController extends Controller
                     'token_type' => 'Bearer'
                 ]);
             }
-            return response()->json('Otp is expired', 401);
+            return response()->json('Otp is expired', 422);
         }
-		return response()->json('Otp is not verified successfully', 401);
+		return response()->json(['success' => true,'message' => 'Otp is not verified successfully'], 201);
     } 
 }
