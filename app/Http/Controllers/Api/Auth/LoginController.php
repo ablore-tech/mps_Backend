@@ -25,12 +25,15 @@ class LoginController extends Controller
                 
                 $token = $user->createToken($request->input('device_name'))->plainTextToken;
                 return response()->json([
-                    'token' => $token,
-                    'token_type' => 'Bearer'
-                ]);
+                    'success' => true,
+                    'message' => [
+                        'token' => $token,
+                        'token_type' => 'Bearer',
+                    ]
+                ], 200);
             }
-            return response()->json('Otp is expired', 422);
+            return response()->json(['Otp is expired'], 422);
         }
-		return response()->json(['success' => true,'message' => 'Otp is not verified successfully'], 200);
+		return response()->json(['success' => true,'message' => 'Otp is not verified successfully'], 422);
     } 
 }
