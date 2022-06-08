@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\V1\Device\DeviceResource;
-use App\Models\Device;
+use App\Models\PhoneProblem;
 use Illuminate\Http\Request;
 
-class DeviceController extends Controller
+class PhoneProblemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,9 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        //
+        $phoneProblems = PhoneProblem::all();
+        
+        return response()->json($phoneProblems, 200);
     }
 
     /**
@@ -83,16 +83,5 @@ class DeviceController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function filterDetails($model_id)
-    {
-        $device =  Device::where('phone_model_id', '=', $model_id)->first();
-
-        if(is_null($device)){
-            return response()->json(['message' => "Model not Found"], 404);
-        }
-
-        return response()->json(new DeviceResource($device), 200);
     }
 }

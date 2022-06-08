@@ -1,19 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\V1\Question\QuestionCollection;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
-class PhoneProblemController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($device_id)
     {
-        //
+        $questions = Question::with(['deviceQuestionPrices' => function($query) use ($device_id) {
+            $query->where('device_id', $device_id);
+        }])->get();
+        
+        return response()->json(new QuestionCollection($questions), 200);
     }
 
     /**

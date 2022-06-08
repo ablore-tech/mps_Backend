@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Resources\Api\V1\Device;
+
+use App\Http\Resources\Api\V1\Device\DeviceVariantPrice\DeviceVariantPriceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class DeviceResource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     */
+    public function toArray($request)
+    {
+        return [
+            'id' => $this->id,
+            'phone_model_id' => $this->phone_model_id,
+            'name' => $this->name,
+            'device_uid' => $this->device_uid,
+            'max_price' => $this->max_price,
+            'photo' => $this->photo,
+            'variations' => $this->variations,
+            'color_variants' => $this->color_variants,
+            'special_offers' => $this->special_offers,
+            'device_specification' => $this->device_specification,
+            'variable_data' => $this->variable_data,
+            'device_variant_prices' => new DeviceVariantPriceCollection($this->deviceVariantPrices)
+        ];
+    }
+}

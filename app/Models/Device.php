@@ -11,6 +11,11 @@ class Device extends Model
     
     public function deviceVariantPrices()
     {
-        $this->hasMany(DeviceVariantPrice::class);
+        return $this->hasMany(DeviceVariantPrice::class);
+    }
+
+    public function deviceQuestionPrices()
+    {
+        return $this->hasMany(DeviceQuestionPrice::class);
     }
 }
