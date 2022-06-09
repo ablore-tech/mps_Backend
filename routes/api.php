@@ -49,9 +49,9 @@ Route::group(['middleware' => 'guest:sanctum'], function () {
 
     Route::post('add-city', [UserController::class, 'addCity']);
 
-    Route::put('user/update/{user_id}', [UserController::class, 'update']);
+    Route::put('user/update/{user}', [UserController::class, 'update']);
 
-    Route::get('user/{user_id}', [UserController::class, 'show']);
+    Route::get('user/{user}', [UserController::class, 'show']);
 
     Route::get('questions/{device_id}', [QuestionController::class, 'index']);
 
