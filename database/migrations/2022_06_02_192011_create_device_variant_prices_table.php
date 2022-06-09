@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('device_id')->references('id')->on('devices')->onDelete('cascade');
             $table->foreignId('variant_id')->references('id')->on('variants')->onDelete('cascade');
+            $table->text('device_uid')->nullable();
+            $table->text('imei_number')->nullable();
             $table->integer('price');
+            $table->longText('color')->nullable();
+            $table->text('photo')->nullable();
+            $table->text('specification')->nullable();
             $table->timestamps();
         });
     }

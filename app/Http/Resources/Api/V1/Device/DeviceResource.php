@@ -19,15 +19,9 @@ class DeviceResource extends JsonResource
             'id' => $this->id,
             'phone_model_id' => $this->phone_model_id,
             'name' => $this->name,
-            'device_uid' => $this->device_uid,
-            'max_price' => $this->max_price,
-            'photo' => $this->photo,
-            'variations' => $this->variations,
-            'color_variants' => $this->color_variants,
             'special_offers' => $this->special_offers,
             'device_specification' => $this->device_specification,
-            'variable_data' => $this->variable_data,
-            'device_variant_prices' => new DeviceVariantPriceCollection($this->deviceVariantPrices)
+            'device_variant_details' => new DeviceVariantPriceCollection($this->deviceVariantPrices)
         ];
     }
 }
