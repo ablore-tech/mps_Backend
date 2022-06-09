@@ -8,9 +8,9 @@ use App\Http\Controllers\Api\DeviceController;
 use App\Http\Controllers\Api\PhoneModelController;
 use App\Http\Controllers\Api\QuestionController;
 use App\Http\Controllers\Api\SeriesController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VersionController;
 use App\Http\Controllers\PhoneProblemController;
-use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +48,10 @@ Route::group(['middleware' => 'guest:sanctum'], function () {
     Route::resource('versions', VersionController::class);
 
     Route::post('add-city', [UserController::class, 'addCity']);
+
+    Route::put('user/update/{user_id}', [UserController::class, 'update']);
+
+    Route::get('user/{user_id}', [UserController::class, 'show']);
 
     Route::get('questions/{device_id}', [QuestionController::class, 'index']);
 

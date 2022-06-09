@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->bigInteger('phone_number')->nullable();
+            $table->bigInteger('alternate_number')->nullable();
             $table->integer('otp')->nullable();
             $table->timestamp('otp_expires_time')->nullable();
             $table->rememberToken();
