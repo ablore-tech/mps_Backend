@@ -93,6 +93,6 @@ class DeviceController extends Controller
             return response()->json(['message' => "Model not Found"], 404);
         }
 
-        return response()->json(new DeviceResource($device), 200);
+        return response()->json(['success' => true, "message" => new DeviceResource($device)], 200);
     }
 }

@@ -20,7 +20,7 @@ class QuestionController extends Controller
             $query->where('device_id', $device_id);
         }])->get();
         
-        return response()->json(new QuestionCollection($questions), 200);
+        return response()->json(["success" => true, "message" => new QuestionCollection($questions)], 200);
     }
 
     /**
