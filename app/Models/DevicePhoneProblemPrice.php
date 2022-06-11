@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class DevicePhoneProblemPrice extends Model
 {
     use HasFactory;
+
+    public function phoneProblem()
+    {
+        return $this->belongsToMany(PhoneProblem::class);
+    }
+
+    public function device()
+    {
+        return $this->belongsTo(Device::class);
+    }
 }

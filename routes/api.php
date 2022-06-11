@@ -10,7 +10,7 @@ use App\Http\Controllers\Api\QuestionController;
 use App\Http\Controllers\Api\SeriesController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VersionController;
-use App\Http\Controllers\PhoneProblemController;
+use App\Http\Controllers\Api\PhoneProblemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -55,7 +55,7 @@ Route::group(['middleware' => 'guest:sanctum'], function () {
 
     Route::get('questions/{device_id}', [QuestionController::class, 'index']);
 
-    Route::resource('phone-problems', PhoneProblemController::class);    
+    Route::get('phone-problems/{device_id}',[PhoneProblemController::class, 'index']); 
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

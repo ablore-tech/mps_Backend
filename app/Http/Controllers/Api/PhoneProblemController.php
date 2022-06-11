@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\V1\PhoneProblem\PhoneProblemCollection;
 use App\Models\PhoneProblem;
 use Illuminate\Http\Request;
 
@@ -12,11 +14,13 @@ class PhoneProblemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($device_id)
     {
-        $phoneProblems = PhoneProblem::all();
+        $phoneProblems = PhoneProblem::with(['devicePhoneProblemPrices' => function($query) use ($device_id) {
+            $query->where('device_id', $device_id);
+        }])->get();
         
-        return response()->json($phoneProblems, 200);
+        return response()->json(["success" => true, "message" => new PhoneProblemCollection($phoneProblems)], 200);
     }
 
     /**

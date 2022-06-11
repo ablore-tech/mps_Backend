@@ -17,8 +17,8 @@ class QuestionResource extends JsonResource
         return [
             'id' => $this->id,
             'description' => $this->description,
-            'price' => $this->deviceQuestionPrices->first() ? $this->deviceQuestionPrices->first()->price : null,
-            'device_id' => $this->deviceQuestionPrices->first() ? $this->deviceQuestionPrices->first()->device_id : null
+            'price' => $this->deviceQuestionPrices ? $this->deviceQuestionPrices->first()->price : null,
+            'device_id' => $this->deviceQuestionPrices ? $this->deviceQuestionPrices->first()->device_id : null
         ];
     }
 }
