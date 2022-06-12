@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\DeviceController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PhoneModelController;
 use App\Http\Controllers\Api\QuestionController;
 use App\Http\Controllers\Api\SeriesController;
@@ -56,6 +57,8 @@ Route::group(['middleware' => 'guest:sanctum'], function () {
     Route::get('questions/{device_id}', [QuestionController::class, 'index']);
 
     Route::get('phone-problems/{device_id}',[PhoneProblemController::class, 'index']); 
+
+    Route::resource('orders', OrderController::class);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
