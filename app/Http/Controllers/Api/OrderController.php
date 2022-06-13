@@ -56,7 +56,7 @@ class OrderController extends Controller
 
         DB::commit();
 
-        return response()->json(["success" => true, "message" => new OrderResource($order)], 201);
+        return response()->json(["success" => true, "message" => 'Order Saved Successfully'], 201);
     }
 
     /**

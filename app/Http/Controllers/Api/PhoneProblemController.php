@@ -16,8 +16,12 @@ class PhoneProblemController extends Controller
      */
     public function index($device_id)
     {
-        $phoneProblems = PhoneProblem::with(['devicePhoneProblemPrices' => function($query) use ($device_id) {
-            $query->where('device_id', $device_id);
+
+        $phoneProblems = 
+        $phoneProblems = PhoneProblem::with(['phoneProblemOptions' =>function($q) use($device_id) {
+            $q->with(['devicePhoneProblemPrices' => function($query) use($device_id) {
+                $query->where('device_id', $device_id);
+            }]);
         }])->get();
         
         return response()->json(["success" => true, "message" => new PhoneProblemCollection($phoneProblems)], 200);

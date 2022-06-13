@@ -13,4 +13,9 @@ class Variant extends Model
     {
         $this->hasMany(DeviceVariantPrice::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

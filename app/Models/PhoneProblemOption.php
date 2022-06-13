@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DevicePhoneProblemPrice extends Model
+class PhoneProblemOption extends Model
 {
     use HasFactory;
 
     public function phoneProblem()
     {
-        return $this->belongsToMany(PhoneProblemOption::class);
+        return $this->belongsToMany(PhoneProblem::class);
     }
 
-    public function device()
+    public function devicePhoneProblemPrices()
     {
-        return $this->belongsTo(Device::class);
+        return $this->hasMany(DevicePhoneProblemPrice::class);
     }
 }

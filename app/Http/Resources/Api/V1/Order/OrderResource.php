@@ -16,10 +16,10 @@ class OrderResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "user" => $this->user_id,
-            "device_id" => $this->device_id,
-            "variant_id" => $this->variant_id,
-            "phone_model_id" => $this->phone_model_id,
+            "user_name" => $this->user->name,
+            "device_name" => $this->device->name,
+            "variant" => $this->variant->memory_size,
+            "phone_model" => $this->phoneModel->name,
             "price" => $this->price
         ];
     }

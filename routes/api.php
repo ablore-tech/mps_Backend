@@ -48,17 +48,21 @@ Route::group(['middleware' => 'guest:sanctum'], function () {
 
     Route::resource('versions', VersionController::class);
 
-    Route::post('add-city', [UserController::class, 'addCity']);
-
-    Route::put('user/update/{user}', [UserController::class, 'update']);
-
-    Route::get('user/{user}', [UserController::class, 'show']);
-
     Route::get('questions/{device_id}', [QuestionController::class, 'index']);
 
     Route::get('phone-problems/{device_id}',[PhoneProblemController::class, 'index']); 
 
+});
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+
+    Route::post('add-city', [UserController::class, 'addCity']);
+
     Route::resource('orders', OrderController::class);
+
+    Route::put('user/update/{user}', [UserController::class, 'update']);
+
+    Route::get('user/{user}', [UserController::class, 'show']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -13,4 +13,9 @@ class PhoneModel extends Model
     {
         return $this->belongsTo(Series::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

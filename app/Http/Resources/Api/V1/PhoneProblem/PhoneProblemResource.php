@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Api\V1\PhoneProblem;
 
+use App\Http\Resources\Api\V1\PhoneProblem\PhoneProblemOption\PhoneProblemOptionCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PhoneProblemResource extends JsonResource
@@ -17,9 +18,7 @@ class PhoneProblemResource extends JsonResource
         return [
             'id' => $this->id,
             'description' => $this->Description,
-            'image' => $this->image,
-            'device_id' => $this->devicePhoneProblemPrices ? $this->devicePhoneProblemPrices->first()->device_id : null,
-            'price' => $this->devicePhoneProblemPrices ? $this->devicePhoneProblemPrices->first()->price : null,
+            'options' => $this->phoneProblemOptions ? new PhoneProblemOptionCollection($this->phoneProblemOptions) : null
         ];
     }
 }

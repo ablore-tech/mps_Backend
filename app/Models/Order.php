@@ -18,4 +18,24 @@ class Order extends Model
     {
         return $this->hasMany(PhoneProblemResponse::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function device()
+    {
+        return $this->belongsTo(Device::class);
+    }
+
+    public function variant()
+    {
+        return $this->belongsTo(Variant::class);
+    }
+
+    public function phoneModel()
+    {
+        return $this->belongsTo(PhoneModel::class);
+    }
 }
