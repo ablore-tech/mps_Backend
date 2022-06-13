@@ -22,6 +22,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+public $guarded = ['id', 'created_at', 'updated_at'];
+
     /**
      * The attributes that should be cast.
      *
