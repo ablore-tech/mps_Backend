@@ -17,7 +17,7 @@ class PhoneProblemResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'description' => $this->Description,
+            'description' => $this->description,
             'options' => $this->phoneProblemOptions ? new PhoneProblemOptionCollection($this->phoneProblemOptions) : null
         ];
     }
