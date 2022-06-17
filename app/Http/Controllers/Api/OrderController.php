@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\OrderRequest\StoreOrderRequest;
+use App\Http\Resources\Api\V1\Order\OrderCollection;
 use App\Http\Resources\Api\V1\Order\OrderResource;
 use App\Models\Order;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -91,5 +93,16 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function userOrders(Authenticatable $user)
+    {
+        $orders = Order::where('user_id', $user->id)->get();
+
+        if($orders)
+        {
+            return response()->json(["success" => true, "message" => new OrderCollection($orders)], 200);
+        }
+        return response()->json(["success" => true, "message" => $orders], 200);
     }
 }

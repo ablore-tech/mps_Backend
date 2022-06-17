@@ -60,9 +60,11 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::resource('orders', OrderController::class);
 
-    Route::put('user/update/{user}', [UserController::class, 'update']);
+    Route::get('user-orders', [OrderController::class, 'userOrders']);
 
-    Route::get('user/{user}', [UserController::class, 'show']);
+    Route::put('user/update', [UserController::class, 'update']);
+
+    Route::get('user', [UserController::class, 'show']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

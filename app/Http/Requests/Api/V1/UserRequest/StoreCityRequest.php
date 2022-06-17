@@ -16,7 +16,6 @@ class StoreCityRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', Rule::exists('users', 'id')],
             'city_id' => ['required', Rule::exists('cities', 'id')]
         ];
     }

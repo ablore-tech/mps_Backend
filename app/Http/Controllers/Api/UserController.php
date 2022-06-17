@@ -7,12 +7,12 @@ use App\Http\Requests\Api\V1\UserRequest\StoreCityRequest;
 use App\Http\Requests\Api\V1\UserRequest\UpdateUserRequest;
 use App\Http\Resources\Api\V1\User\UserResource;
 use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class UserController extends Controller
 {
-    public function addCity(StoreCityRequest $request)
+    public function addCity(StoreCityRequest $request, Authenticatable $user)
     {
-        $user = User::findOrFail($request->user_id);
         if($user)
         {
             $user->city_id = $request->city_id;
@@ -23,7 +23,7 @@ class UserController extends Controller
         return response()->json(["success" => false, "message" => 'User not found'], 200);
     }
 
-    public function show(User $user)
+    public function show(Authenticatable $user)
     {
         if($user)
         {
@@ -32,7 +32,7 @@ class UserController extends Controller
         return response()->json(["success" => false, "message" => "User not found" ], 200);
     }
 
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, Authenticatable $user)
     {
         if($user)
         {
