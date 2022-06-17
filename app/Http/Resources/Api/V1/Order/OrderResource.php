@@ -19,8 +19,10 @@ class OrderResource extends JsonResource
             "user_name" => $this->user->name,
             "device_name" => $this->device->name,
             "variant" => $this->variant->memory_size,
-            "phone_model" => $this->phoneModel->name,
-            "price" => $this->price
+            "phone_model" => $this->phoneModel,
+            "price" => $this->price,
+            "created_at" => $this->created_at,
+            "updated_at" => $this->updated_at
         ];
     }
 }
