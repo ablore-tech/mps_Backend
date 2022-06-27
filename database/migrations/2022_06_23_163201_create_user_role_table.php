@@ -13,22 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('variants', function (Blueprint $table) {
+        Schema::create('user_role', function (Blueprint $table) {
             $table->id();
-            $table->string('memory_size');
-            $table->string('unit');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('role_id')->nullable()->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
-    
     {
-        Schema::dropIfExists('variants');
+        Schema::dropIfExists('user_role');
     }
 };

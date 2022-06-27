@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\PhoneModelController;
+use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VariantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,14 +26,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profile');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profile');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/')->name('brands.index');
+Route::resource('/brands', BrandController::class);
 
-Route::get('/edf')->name('series.index');
+Route::resource('/series', SeriesController::class);
 
-Route::get('/fer')->name('models.index');
+Route::resource('/phone-models', PhoneModelController::class);
 
-Route::get('/ferd')->name('devices.index');
+Route::resource('/variants', VariantController::class);
+
+Route::get('/edit-profile', [UserController::class, 'edit'])->name('edit-profile');
+
+Route::resource('/devices', DeviceController::class);

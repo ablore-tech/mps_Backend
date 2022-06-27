@@ -9,6 +9,8 @@ class PhoneModel extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id', 'created_by', 'updated_by'];
+
     public function series()
     {
         return $this->belongsTo(Series::class);
@@ -17,5 +19,10 @@ class PhoneModel extends Model
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+    
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
     }
 }

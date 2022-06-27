@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('variants', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('memory_size');
-            $table->string('unit');
+            $table->text('name');
             $table->timestamps();
         });
     }
@@ -27,8 +26,7 @@ return new class extends Migration
      * @return void
      */
     public function down()
-    
     {
-        Schema::dropIfExists('variants');
+        Schema::dropIfExists('roles');
     }
 };

@@ -9,6 +9,8 @@ class Variant extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id', 'created_by', 'updated_by'];
+
     public function deviceVariantPrices()
     {
         $this->hasMany(DeviceVariantPrice::class);

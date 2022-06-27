@@ -17,8 +17,8 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-
+        <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template-->
    <style>
@@ -81,7 +81,7 @@
             <hr class="sidebar-divider">
 
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('models.index')}}">
+                <a class="nav-link" href="{{route('phone-models.index')}}">
                     {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
                     <i class="fas fa-user-graduate"></i>
                     <span>View Models</span></a>
@@ -90,10 +90,10 @@
             <hr class="sidebar-divider">
 
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('devices.index')}}">
+                <a class="nav-link" href="{{route('variants.index')}}">
                     {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
                     <i class="fas fa-user"></i>
-                    <span>View Devices</span></a>
+                    <span>View Variants</span></a>
             </li>
 
             <hr class="sidebar-divider">
@@ -123,7 +123,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                <a class="dropdown-item" href="{{ route('edit-profile') }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -138,7 +138,16 @@
                                     </form>
                             </div>
                         </li>
-
+                        <!-- <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div> -->
                     </ul>
 
                 </nav>

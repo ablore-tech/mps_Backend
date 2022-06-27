@@ -8,7 +8,7 @@
       <div class="card-body text-center">
           <h4 class="card-title">Brands</h4>
         <p class="card-text">Add Brands here</p>
-        <a href="" class="btn body_color text-white">Add</a>
+        <a href="{{url('brands/create')}}" class="btn body_color text-white">Add</a>
       </div>
     </div>
      
@@ -17,23 +17,34 @@
       <div class="card-body text-center">
           <h4 class="card-title">Series</h4>
         <p class="card-text">Add Series here</p>
-        <a href="" class="btn body_color text-white">Add</a>
+        <a href="{{url('series/create')}}" class="btn body_color text-white">Add</a>
       </div>
     </div>
+
     <div class="card bg-white">
       <!-- <img class="card-img-top" src="/images/models.jpeg" alt="models" style="height: 300px"> -->
       <div class="card-body text-center">
           <h4 class="card-title">Model</h4>
         <p class="card-text">Add Models here</p>
-        <a href="" class="btn body_color text-white">Add</a>
+        <a href="{{url('phone-models/create')}}" class="btn body_color text-white">Add</a>
       </div>
     </div>
+
     <div class="card bg-white">
       <!-- <img class="card-img-top" src="/images/devices.jpeg" alt="devices" style="height: 300px"> -->
       <div class="card-body text-center">
-          <h4 class="card-title">Devices</h4>
-        <p class="card-text">Add Devices here</p>
-        <a href="" class="btn body_color text-white">Add</a>
+          <h4 class="card-title">Variants</h4>
+        <p class="card-text">Add Variants here</p>
+        <a href="{{url('variants/create')}}" class="btn body_color text-white">Add</a>
+      </div>
+    </div>
+
+    <div class="card bg-white">
+      <!-- <img class="card-img-top" src="/images/devices.jpeg" alt="devices" style="height: 300px"> -->
+      <div class="card-body text-center">
+          <h4 class="card-title">Device Details</h4>
+        <p class="card-text">Add Device details here</p>
+        <a href="{{url('devices/create')}}" class="btn body_color text-white">Add</a>
       </div>
     </div>
   </div>
