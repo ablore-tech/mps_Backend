@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
+use App\Models\DevicePhoneProblemPrice;
+use App\Models\DeviceQuestionPrice;
+use App\Models\DeviceVariantPrice;
 use App\Models\PhoneModel;
 use App\Models\PhoneProblem;
 use App\Models\Question;
 use App\Models\Variant;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class DeviceController extends Controller
@@ -46,6 +51,31 @@ class DeviceController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
+        $phoneModel = PhoneModel::find($request->get('model_id'));
+        
+        $device = Device::create([
+            'phone_model_id' => $phoneModel->id,
+            'name' => $phoneModel->name,
+        ]);
+
+        $deviceVariantPrice = DeviceVariantPrice::create([
+            'device_id' => $device->id,
+            'variant_id' => $request->get('variant_id'),
+            'price' => $request->get('device_price'),
+            'special_offers' => $request->get('special_offer'),
+            'camera' => $request->get('camera')
+        ]);
+
+        // foreach($request->get(''))
+        $deviceQuestionPrice = DeviceQuestionPrice::create([
+            
+        ]);
+
+        $devicePhoneProblemPrice = DevicePhoneProblemPrice::create([
+
+        ]);
+
         dd($request->all());
     }
 

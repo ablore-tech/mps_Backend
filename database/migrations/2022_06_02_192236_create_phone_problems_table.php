@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('phone_problems', function (Blueprint $table) {
             $table->id();
             $table->text('description');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

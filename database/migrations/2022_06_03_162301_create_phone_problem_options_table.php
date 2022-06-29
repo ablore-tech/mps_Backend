@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('phone_problem_id')->references('id')->on('phone_problems')->onDelete('cascade');
             $table->text("name");
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('image');
             $table->timestamps();
         });

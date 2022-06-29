@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('device_uid')->nullable();
             $table->text('imei_number')->nullable();
             $table->integer('price');
+            $table->text('camera')->nullable();
+            $table->text('special_offers')->nullable();
             $table->longText('color')->nullable();
             $table->text('photo')->nullable();
             $table->text('specification')->nullable();

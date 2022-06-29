@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-<form action="{{ route('devices.store') }}" method="POST" role="form" enctype="multipart/form-data" class="container-fluid" style="padding-top:150px">
+<form action="{{ route('devices.store') }}" method="POST" role="form" enctype="multipart/form-data" class="container-fluid" style="padding-top:50px">
 {{ csrf_field() }}
     <div class="card" style="width: 100%">
         <div class="card-header body_color text-center text-white"><h3>Add Device details</h3></div>
@@ -19,15 +19,23 @@
             </div>
 
             <div class="form-group row">
-                <label for="series_id" class="col-md-4 col-form-label text-md-right">Select Variant</label>
+                <label for="variant_id" class="col-md-4 col-form-label text-md-right">Select Variant</label>
                 
-                <select class="col-md-6" name="series_id">
+                <select class="col-md-6" name="variant_id">
                     @if ($variants)
                         @foreach($variants as $variant)
                             <option value="{{ $variant->id }}">{{ $variant->memory_size }}</option>    
                         @endforeach
                     @endif
                 </select>
+            </div>
+
+            <div class="form-group row">
+                <label for="device_price" class="col-md-4 col-form-label text-md-right">Device Price</label>
+                
+                <div class="col-md-6">
+                    <input id="device_price" type="text" name="device_price" class="form-control" required placeholder="Add device price here">
+                </div>
             </div>
 
             <div class="form-group row">
@@ -42,34 +50,37 @@
                 <label for="camera" class="col-md-4 col-form-label text-md-right">Camera</label>
                 
                 <div class="col-md-6">
-                    <input id="camera" type="text" name="camera" class="form-control" placeholder="Add camera details here">
+                    <input id="camera" type="text" name="camera" class="form-control" required placeholder="Add camera details here">
                 </div>
             </div>
 
-             <label for="questions" class="col-md-4 col-form-label text-md-right">Questions Prices</label>
+             <label for="question_prices" class="col-md-4 col-form-label text-md-right">Questions</label>
             
             @foreach($questions as $question)
                 <div class="form-group row">
-                    <label for="question[{{$question->id}}]" class="col-md-4 col-form-label text-md-right">{{ $question->description }}</label>
+                    <label for="question_prices[{{$question->id}}]" class="col-md-4 col-form-label text-md-right">{{ $question->description }}</label>
                     
                     <div class="col-md-6">
-                        <input id="question[{{$question->id}}]" type="text" name="question[{{$question->id}}]" class="form-control" placeholder="Add price here">
+                        <input id="question_prices[{{$question->id}}]" type="text" name="question_prices[{{$question->id}}]" required class="form-control" placeholder="Add price here">
                     </div>
                 </div>
             @endforeach      
 
-            <label for="phone_problems" class="col-md-4 col-form-label text-md-right">Phone Problems Prices</label>
+            <label for="phone_problem_prices" class="col-md-4 col-form-label text-md-right">Phone Problems</label>
             
-            @foreach($phone_problems as $phone_problem)
-
-                <label for="phone_problem" class="col-md-4 col-form-label text-md-right">{{$phone_problem->description}}</label>
-                
+            @foreach($phoneProblems as $phoneProblem)
                 <div class="form-group row">
-                    <label for="phone_problem[{{$phone_problem->id}}]" class="col-md-4 col-form-label text-md-right">{{ $phone_problem->description }}</label>
-                    
-                    <div class="col-md-6">
-                        <input id="phone_problem[{{$phone_problem->id}}]" type="text" name="phone_problem[{{$phone_problem->id}}]" class="form-control" placeholder="Add price here">
-                    </div>
+                    <label for="phone_problem_prices" class="col-md-4 col-form-label text-md-right">{{$phoneProblem->description}}</label>
+                
+                    @foreach($phoneProblem->phoneProblemOptions as $phoneProblemOption)
+                        <div class="form-group row">
+                            <label for="phone_problem_prices[{{$phoneProblem->id}}][{{$phoneProblemOption->id}}]" class="col-md-4 col-form-label text-md-right">{{ $phoneProblemOption->name }}</label>
+                            
+                            <div class="col-md-6">
+                                <input id="phone_problem_prices[{{$phoneProblem->id}}][{{$phoneProblemOption->id}}]" type="text" name="phone_problem_prices[{{$phoneProblem->id}}][{{$phoneProblemOption->id}}]" required class="form-control" placeholder="Add price here">
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             @endforeach 
 

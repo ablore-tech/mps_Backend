@@ -9,6 +9,8 @@ class Question extends Model
 {
     use HasFactory;
 
+    public $guarded = ['id', 'created_at', 'updated_at'];
+
     public function deviceQuestionPrices()
     {
         return $this->hasMany(DeviceQuestionPrice::class);

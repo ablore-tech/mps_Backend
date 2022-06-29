@@ -9,6 +9,8 @@ class PhoneProblem extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id', 'craeted_at', 'updated_at'];
+
     public function devicePhoneProblemPrices()
     {
         return $this->hasMany(DevicePhoneProblemPrice::class);

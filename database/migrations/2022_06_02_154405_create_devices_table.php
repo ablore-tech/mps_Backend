@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('phone_model_id')->references('id')->on('phone_models')->onDelete('cascade');
             $table->text('name')->nullable();
-            $table->text('special_offers')->nullable();
             $table->text('device_specification')->nullable();
             $table->timestamps();
         });
