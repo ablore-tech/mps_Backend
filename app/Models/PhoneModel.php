@@ -25,4 +25,9 @@ class PhoneModel extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
+    public function device()
+    {
+        return $this->hasOne(Device::class);
+    }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-<form action="{{ route('brands.store') }}" method="POST" role="form" enctype="multipart/form-data" class="container-fluid" style="padding-top:150px">
+<form action="{{ route('variants.store') }}" method="POST" role="form" enctype="multipart/form-data" class="container-fluid" style="padding-top:150px">
     {{ csrf_field() }}
     <div class="card" style="width: 100%">
         <div class="card-header body_color text-center text-white"><h3>Add Variant</h3></div>
@@ -10,7 +10,7 @@
                 <label for="name" class="col-md-4 col-form-label text-md-right">Ram and memory size</label>
                 
                 <div class="col-md-6">
-                    <input id="name" type="text" name="name" class="form-control" placeholder="Format:- 3/32">
+                    <input id="name" type="text" name="name" class="form-control" required placeholder="Format:- 3/32">
                 </div>
             </div>
             

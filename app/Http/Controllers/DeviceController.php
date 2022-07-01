@@ -22,7 +22,9 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        //
+        $devices = Device::with(['deviceVariantPrices', 'phoneModel'])->get();
+
+        return view('devices.index', compact(['devices']));
     }
 
     /**
@@ -51,10 +53,9 @@ class DeviceController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $phoneModel = PhoneModel::find($request->get('model_id'));
         
-        $device = Device::create([
+        $device = Device::firstOrCreate([
             'phone_model_id' => $phoneModel->id,
             'name' => $phoneModel->name,
         ]);
@@ -67,16 +68,29 @@ class DeviceController extends Controller
             'camera' => $request->get('camera')
         ]);
 
-        // foreach($request->get(''))
-        $deviceQuestionPrice = DeviceQuestionPrice::create([
-            
-        ]);
+        foreach($request->get('question_prices') as $key => $price) 
+        {
+            $deviceQuestionPrice = DeviceQuestionPrice::create([
+                'device_id' => $device->id,
+                'question_id' => $key,
+                'price' => $price
+            ]);
+        }
+        
+        foreach($request->get('phone_problem_prices') as $phoneProblemId => $phoneProblemOptionPrices)
+        {
+            foreach($phoneProblemOptionPrices as $optionId => $phoneProblemOptionPrice)
+            {
+                $devicePhoneProblemPrice = DevicePhoneProblemPrice::create([
+                    'device_id' => $device->id,
+                    'phone_problem_id' => $phoneProblemId,
+                    'phone_problem_option_id' => $optionId,
+                    'price' => $phoneProblemOptionPrice
+                ]);       
+            }
+        }
 
-        $devicePhoneProblemPrice = DevicePhoneProblemPrice::create([
-
-        ]);
-
-        dd($request->all());
+        return back();
     }
 
     /**

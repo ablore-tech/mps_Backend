@@ -25,4 +25,9 @@ class Device extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function phoneModel()
+    {
+        return $this->belongsTo(PhoneModel::class);
+    }
 }

@@ -97,6 +97,15 @@
             </li>
 
             <hr class="sidebar-divider">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('devices.index')}}">
+                    {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
+                    <i class="fas fa-user"></i>
+                    <span>View Device Details</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
         </ul>
         <!-- End of Sidebar -->
         

@@ -37,7 +37,11 @@ class VariantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $variant = Variant::create([
+            'memory_size' => $request->get('name')
+        ]);
+
+        return back();
     }
 
     /**

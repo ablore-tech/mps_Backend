@@ -60,8 +60,8 @@ class PhoneModelController extends Controller
             // Set user profile image path in database to filePath
 
         $phoneModel = PhoneModel::create([
-            'name' => 'required',
-            'series_id' => $request->get('series_by'),
+            'name' => $request->get('name'),
+            'series_id' => $request->get('series_id'),
             'brand_id' => $request->get('brand_id'),
             'image' => $filePath
         ]);

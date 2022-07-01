@@ -12,6 +12,7 @@
                 <thead>
                     <tr class="bg-info text-dark" style="height:60px">
                         <th scope="col">S.No</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Brand</th>
                         <th scope="col">Series</th>
@@ -26,6 +27,11 @@
                     @foreach ($phoneModels as $phoneModel)
                         <tr>
                             <td> {{ ++$i }} </td>
+                            <td>
+                                @if ($phoneModel->image)
+                                    <img src="{{ asset('/storage'.$phoneModel->image) }}" width="40" height="40">
+                                @endif
+                            </td>
                             <td> {{ $phoneModel->name }}</td>
                             <td> {{ $phoneModel->brand->name }}</td>
                             <td> {{ $phoneModel->series ? $phoneModel->series->name : null }}</td>

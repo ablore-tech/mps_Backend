@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('variants', function (Blueprint $table) {
             $table->id();
             $table->string('memory_size');
-            $table->string('unit');
+            $table->string('unit')->nullable();
             $table->timestamps();
         });
     }

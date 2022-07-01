@@ -28,16 +28,20 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profile');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::resource('/brands', BrandController::class);
+    Route::resource('/brands', BrandController::class);
 
-Route::resource('/series', SeriesController::class);
+    Route::resource('/series', SeriesController::class);
 
-Route::resource('/phone-models', PhoneModelController::class);
+    Route::resource('/phone-models', PhoneModelController::class);
 
-Route::resource('/variants', VariantController::class);
+    Route::resource('/variants', VariantController::class);
 
-Route::get('/edit-profile', [UserController::class, 'edit'])->name('edit-profile');
+    Route::get('/edit-profile', [UserController::class, 'edit'])->name('edit-profile');
 
-Route::resource('/devices', DeviceController::class);
+    Route::resource('/devices', DeviceController::class);
+
+    Route::post('/user/{user}', [UserController::class, 'update'])->name('update-profile');
+});
