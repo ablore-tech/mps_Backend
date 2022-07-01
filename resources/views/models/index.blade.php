@@ -16,7 +16,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Brand</th>
                         <th scope="col">Series</th>
-                        <th>Actions</th>
+                        <!-- <th>Actions</th> -->
                     </tr>
                 </thead>
                 
@@ -35,11 +35,11 @@
                             <td> {{ $phoneModel->name }}</td>
                             <td> {{ $phoneModel->brand->name }}</td>
                             <td> {{ $phoneModel->series ? $phoneModel->series->name : null }}</td>
-                            <td> 
+                            <!-- <td> 
                                 <span class="btn btn-info">Edit </span>
                                 <span class="btn btn-success">View </span>
                                 <span class="btn btn-danger">Delete</span>
-                            </td>
+                            </td> -->
                         </tr>
                     @endforeach
                 </tbody>

@@ -14,7 +14,7 @@
                         <th scope="col">S.No</th>
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
-                        <th>Actions</th>
+                        <!-- <th>Actions</th> -->
                     </tr>
                 </thead>
                 
@@ -31,11 +31,11 @@
                                 @endif
                             </td>
                             <td> {{ $brand->name }}</td>
-                            <td> 
+                            <!-- <td> 
                                 <span class="btn btn-info">Edit </span>
                                 <span class="btn btn-success">View </span>
                                 <span class="btn btn-danger">Delete</span>
-                            </td>
+                            </td> -->
                         </tr>
                     @endforeach
                 </tbody>

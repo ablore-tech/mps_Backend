@@ -13,7 +13,7 @@
                     <tr class="bg-info text-dark" style="height:60px">
                         <th scope="col">S.No</th>
                         <th scope="col">Memory Size</th>
-                        <th>Actions</th>
+                        <!-- <th>Actions</th> -->
                     </tr>
                 </thead>
                 
@@ -25,11 +25,11 @@
                         <tr>
                             <td> {{ ++$i }}</td>
                             <td> {{ $variant->memory_size }}</td>
-                            <td> 
+                            <!-- <td> 
                                 <span class="btn btn-info">Edit </span>
                                 <span class="btn btn-success">View </span>
                                 <span class="btn btn-danger">Delete</span>
-                            </td>
+                            </td> -->
                         </tr>
                     @endforeach
                 </tbody>
