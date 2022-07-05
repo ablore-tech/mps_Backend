@@ -38,4 +38,9 @@ class Order extends Model
     {
         return $this->belongsTo(PhoneModel::class);
     }
+
+    public function userChats()
+    {
+        return $this->hasMany(Chat::class);
+    }
 }

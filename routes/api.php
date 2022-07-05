@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\BrandController;
+use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\DeviceController;
 use App\Http\Controllers\Api\OrderController;
@@ -65,6 +66,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::put('user/update', [UserController::class, 'update']);
 
     Route::get('user', [UserController::class, 'show']);
+
+    Route::get('chats/{order}', [ChatController::class, 'index']);
+
+    Route::post('chats', [ChatController::class, 'store']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
