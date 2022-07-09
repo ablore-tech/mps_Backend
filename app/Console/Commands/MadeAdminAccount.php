@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,10 +30,11 @@ class MadeAdminAccount extends Command
      */
     public function handle()
     {
-        User::create([
+        $user = User::create([
             'name' => 'Ablore',
             'email' => 'admin@ablore.xyz',
-            'password' => Hash::make('password')
+            'password' => Hash::make('password'),
+            'role_id' => 1
         ]);
 
         return 0;

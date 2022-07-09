@@ -17,7 +17,7 @@ class QuestionSeeder extends Seeder
     {
         $questions = [
             [
-               'description' => 'Are you able to make and receive calls?' 
+               'description' => 'Are there any problems with making and receiving calls?' 
             ],
             [
                 'description' => 'Are there any problems with your mobile screen?' 
@@ -26,7 +26,7 @@ class QuestionSeeder extends Seeder
                 'description' => 'Are there any defects on your phone body?' 
             ],
             [
-                'description' => 'Is your mobile under brand warranty?' 
+                'description' => 'Is your mobile out of warranty?' 
             ]
         ];
 

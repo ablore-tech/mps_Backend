@@ -33,7 +33,8 @@ class RegisterController extends Controller
             $user = new User();
             $user->phone_number = $request->phoneNumber();
             $user->otp = $otp;
-            $user->otp_expires_time = $otp_expires_time; 
+            $user->otp_expires_time = $otp_expires_time;
+            $user->role_id = 2;
             $user->save();
         }
 		

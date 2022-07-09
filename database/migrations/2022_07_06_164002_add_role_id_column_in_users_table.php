@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_role', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('role_id')->nullable()->references('id')->on('roles')->onDelete('cascade');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //
         });
     }
 
-    
     /**
      * Reverse the migrations.
      *
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_role');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
