@@ -15,4 +15,9 @@ class Question extends Model
     {
         return $this->hasMany(DeviceQuestionPrice::class);
     }
+
+    public function questionResponses()
+    {
+        return $this->hasMany(QuestionResponse::class);
+    }
 }

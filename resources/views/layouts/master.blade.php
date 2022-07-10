@@ -45,7 +45,7 @@
             <a class="sidebar-brand d-flex align-items-center fixed justify-content-center" href="{{ url('/dashboard') }}">
                 <div class="sidebar-brand-icon">
                     {{-- <i class="fas fa-laugh-wink"></i> --}}
-                    <!-- <img src="/images/admin-logo.png"> -->
+                    <img src="/images/admin-logo.png" width="40" height="40">
                 </div>
                 <div class="sidebar-brand-text mx-3">Admin</div>
             </a>

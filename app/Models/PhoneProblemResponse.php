@@ -15,4 +15,9 @@ class PhoneProblemResponse extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function phoneProblem()
+    {
+        return $this->belongsTo(PhoneProblem::class);
+    }
 }

@@ -39,7 +39,7 @@
                                 <td> {{ $deviceVariantPrice->price }}</td>
                                 <td> 
                                     <!-- <span class="btn btn-info">Edit </span> -->
-                                    <!-- <a class="btn btn-info" href="{{ url('devices/'. $device->id. '/edit') }}">Edit</a> -->
+                                    <!-- <a class="btn btn-info" href="{{ url('devices/'. $device->id) }}">View</a> -->
                                     <span class="btn btn-success">View </span>
                                 </td>
                             </tr>

@@ -15,4 +15,9 @@ class QuestionResponse extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function question()
+    {
+        return $this->belongsTo(Question::class);
+    }
 }

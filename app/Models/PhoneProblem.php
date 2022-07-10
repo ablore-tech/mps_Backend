@@ -20,4 +20,9 @@ class PhoneProblem extends Model
     {
         return $this->hasMany(PhoneProblemOption::class);   
     }
+
+    public function phoneProblemResponses()
+    {
+        return $this->hasMany(PhoneProblemResponse::class);
+    }
 }

@@ -34,6 +34,7 @@
                             <td> {{ $order->price }}</td>
                             <td> 
                                 <a class="btn btn-info" href="{{ url('chats/'. $order->id) }}">View Chats</a>
+                                <a class="btn btn-success" href="{{ url('orders/'. $order->id) }}">View details</a>
                             </td>
                         </tr>
                     @endforeach
