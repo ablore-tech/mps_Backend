@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PhoneModelController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\UserController;
@@ -44,4 +46,10 @@ Route::middleware(['auth'])->group(function() {
     Route::resource('/devices', DeviceController::class);
 
     Route::post('/user/{user}', [UserController::class, 'update'])->name('update-profile');
+
+    Route::resource('/orders', OrderController::class);
+
+    Route::get('chats/{order}', [ChatController::class, 'index']);
+
+    Route::post('chats/{order}', [ChatController::class, 'store'])->name('chats.store');
 });

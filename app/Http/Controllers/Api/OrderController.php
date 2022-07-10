@@ -48,13 +48,15 @@ class OrderController extends Controller
             $order->questionResponses()->create($question);
         }
 
-        foreach($request->responses["phone_problems"] as $phone_problem)
-        {
-            $order->phoneProblemResponses()->create([
-                "phone_problem_id" => $phone_problem["phone_problem_id"],
-                "answers" => json_encode($phone_problem["answers"])
-            ]);
-        }
+        $order->phoneProblemResponses()->create([
+            "phone_problem_id" => $request->responses["phone_problem_1"]["phone_problem_id"],
+            "answers" => json_encode($request->responses["phone_problem_1"]["answers"])
+        ]);
+
+        $order->phoneProblemResponses()->create([
+            "phone_problem_id" => $request->responses["phone_problem_2"]["phone_problem_id"],
+            "answers" => json_encode($request->responses["phone_problem_2"]["answers"])
+        ]);
 
         DB::commit();
 

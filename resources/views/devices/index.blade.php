@@ -16,7 +16,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Variant</th>
                         <th scope="col">Price</th>
-                        <!-- <th>Actions</th> -->
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 
@@ -37,11 +37,11 @@
                                 <td> {{ $device->phoneModel->name }}</td>
                                 <td> {{ $deviceVariantPrice->variant->memory_size }}</td>
                                 <td> {{ $deviceVariantPrice->price }}</td>
-                                <!-- <td> 
-                                    <span class="btn btn-info">Edit </span>
+                                <td> 
+                                    <!-- <span class="btn btn-info">Edit </span> -->
+                                    <!-- <a class="btn btn-info" href="{{ url('devices/'. $device->id. '/edit') }}">Edit</a> -->
                                     <span class="btn btn-success">View </span>
-                                    <span class="btn btn-danger">Delete</span>
-                                </td> -->
+                                </td>
                             </tr>
                         @endforeach
                     @endforeach

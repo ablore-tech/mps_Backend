@@ -106,6 +106,15 @@
             </li>
 
             <hr class="sidebar-divider">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('orders.index')}}">
+                    {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
+                    <i class="fas fa-user"></i>
+                    <span>View Orders</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
         </ul>
         <!-- End of Sidebar -->
         
