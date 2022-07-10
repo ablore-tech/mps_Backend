@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-body">
             <div class="card-header text-center body_color text-white">
-                <h1>Model List</h1>
+                <h1>Order List</h1>
             </div>
 
             <table class="table table-hover text-center table-bordered">

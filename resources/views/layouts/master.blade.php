@@ -42,10 +42,10 @@
         <ul class="navbar-nav bg-color sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center fixed justify-content-center" href="{{ url('/') }}">
+            <a class="sidebar-brand d-flex align-items-center fixed justify-content-center" href="{{ url('/dashboard') }}">
                 <div class="sidebar-brand-icon">
                     {{-- <i class="fas fa-laugh-wink"></i> --}}
-                    <i class="fas fa-school"></i>
+                    <!-- <img src="/images/admin-logo.png"> -->
                 </div>
                 <div class="sidebar-brand-text mx-3">Admin</div>
             </a>

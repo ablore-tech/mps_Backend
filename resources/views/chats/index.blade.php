@@ -9,12 +9,12 @@
 
             @foreach($chats as $chat)
                 <div class="form-group row">
-                    <div class="col-md-6 form-control">
+                    <div class="col-md-6 ">
                         @if($chat->user_id)
                             {{ $chat->message }}    
                         @endif
                     </div>
-                    <div class="col-md-6 form-control">
+                    <div class="col-md-6 ">
                     @if($chat->admin_id)
                             {{ $chat->message }}
                         @endif

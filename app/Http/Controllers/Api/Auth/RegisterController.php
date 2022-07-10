@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SendOtpRequest;
+use App\Http\Resources\Api\V1\Otp\SendOtpResource;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -38,6 +39,6 @@ class RegisterController extends Controller
             $user->save();
         }
 		
-		return response()->json(['success' => true,'message' => $user], 200);
+		return response()->json(['success' => true,'message' => new SendOtpResource($user)], 200);
     }
 }

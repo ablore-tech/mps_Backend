@@ -43,7 +43,7 @@
                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                 
                 <div class="col-md-6">
-                    <input id="name" type="text" name="name" class="form-control" placeholder="Add series here">
+                    <input id="name" type="text" name="name" class="form-control" placeholder="Add model here">
                 </div>
             </div>
             
