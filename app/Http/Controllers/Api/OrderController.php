@@ -40,7 +40,7 @@ class OrderController extends Controller
         $order->variant_id = $request->input('variant_id');
         $order->phone_model_id = $request->input('phone_model_id');
         $order->price = $request->input('price');
-        $order->status = config('settings.status.pending');
+        $order->status = config('settings.status.Pending');
         
         $order->save();
 
