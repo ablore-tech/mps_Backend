@@ -115,6 +115,24 @@
             </li>
 
             <hr class="sidebar-divider">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('cities.index')}}">
+                    {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
+                    <i class="fas fa-user"></i>
+                    <span>View Cities</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('versions.index')}}">
+                    {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
+                    <i class="fas fa-user"></i>
+                    <span>View Versions</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
         </ul>
         <!-- End of Sidebar -->
         

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\OrderController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\PhoneModelController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VariantController;
+use App\Http\Controllers\VersionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +42,10 @@ Route::middleware(['auth'])->group(function() {
     Route::resource('/phone-models', PhoneModelController::class);
 
     Route::resource('/variants', VariantController::class);
+
+    Route::resource('/cities', CityController::class);
+
+    Route::resource('/versions', VersionController::class);
 
     Route::get('/edit-profile', [UserController::class, 'edit'])->name('edit-profile');
 
