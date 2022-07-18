@@ -21,6 +21,7 @@ class OrderResource extends JsonResource
             "variant" => $this->variant->memory_size,
             "phone_model" => $this->phoneModel,
             "price" => $this->price,
+            "status" => array_search($this->status, config('settings.status')),
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at
         ];

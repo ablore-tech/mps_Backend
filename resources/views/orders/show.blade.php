@@ -1,15 +1,26 @@
 @extends('layouts.master')
 @section('content')
 
-<form  class="container-fluid" style="padding-top:50px">
+<form action="{{ route('orders.update', [$order->id])}}" method="POST" role="form" enctype="multipart/form-data" class="container-fluid" style="padding-top:50px">
+{{ method_field('PUT') }}
 {{ csrf_field() }}
     <div class="card" style="width: 100%">
         <div class="card-header body_color text-center text-white"><h3>View Device details</h3></div>
         <div class="card-body">
             <div class="form-group row">
+                <label for="status" class="col-md-4 col-form-label text-md-right">Status</label>
+                
+                <select class="col-md-6" name="status">
+                        @foreach(config('settings.status') as $status => $value)
+                            <option value="{{ $value }}" @if($value == $order->status) selected @endif>{{ $status }}</option>    
+                        @endforeach
+                </select>
+            </div>
+
+            <div class="form-group row mt-4">
                 <label for="model_id" class="col-md-4 col-form-label text-md-right">User Name</label>
                 
-                <div class="col-md-6 form-control">
+                <div class="col-md-6">
                     {{$order->user->name}}
                 </div>
             </div>
@@ -52,6 +63,11 @@
                 </div>
             @endforeach 
 
+            <div class="form-group row mb-0 mt-3">
+                <div class="col-md-4 offset-md-4">
+                    <button type="submit" class="btn body_color text-white btn-block">Update Status</button>
+                </div>
+            </div>
         </div>
     </div>
 </form>

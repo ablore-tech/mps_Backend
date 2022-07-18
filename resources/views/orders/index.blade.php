@@ -13,10 +13,12 @@
                 <thead>
                     <tr class="bg-info text-dark" style="height:60px">
                         <th scope="col">S.No</th>
+                        <th scope="col">Order Number</th>
                         <th scope="col">User Name</th>
                         <th scope="col">Device</th>
                         <th scope="col">Variant</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -28,10 +30,12 @@
                     @foreach ($orders as $order)
                         <tr>
                             <td> {{ ++$i }} </td>
+                            <td> {{ $order->id }}</td>
                             <td> {{ $order->user->name }}</td>
                             <td> {{ $order->device->name }}</td>
                             <td> {{ $order->variant->memory_size }}</td>
                             <td> {{ $order->price }}</td>
+                            <td> {{ array_search($order->status, config('settings.status')) }}</td>
                             <td> 
                                 <a class="btn btn-info" href="{{ url('chats/'. $order->id) }}">View Chats</a>
                                 <a class="btn btn-success" href="{{ url('orders/'. $order->id) }}">View details</a>

@@ -46,7 +46,7 @@ class PhoneModelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePhoneModelRequest $request)
     {
         $image = $request->file('image');
             // Make a image name based on user name and current timestamp

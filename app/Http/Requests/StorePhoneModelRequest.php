@@ -19,7 +19,8 @@ class StorePhoneModelRequest extends FormRequest
         return [
             'name' => 'required',
             'brand_id' => ['required', Rule::exists('brands', 'id')],
-            'series_id' => ['nullable', Rule::exists('series', 'id')]
+            'series_id' => ['nullable', Rule::exists('series', 'id')],
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 
