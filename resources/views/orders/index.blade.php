@@ -19,6 +19,7 @@
                         <th scope="col">Variant</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Imei Number</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -36,6 +37,7 @@
                             <td> {{ $order->variant->memory_size }}</td>
                             <td> {{ $order->price }}</td>
                             <td> {{ array_search($order->status, config('settings.status')) }}</td>
+                            <td> {{ $order->imei }}</td>
                             <td> 
                                 <a class="btn btn-info" href="{{ url('chats/'. $order->id) }}">View Chats</a>
                                 <a class="btn btn-success" href="{{ url('orders/'. $order->id) }}">View details</a>

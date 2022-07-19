@@ -23,7 +23,8 @@ class OrderResource extends JsonResource
             "price" => $this->price,
             "status" => array_search($this->status, config('settings.status')) ? array_search($this->status, config('settings.status')) : 'Pending',
             "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "updated_at" => $this->updated_at,
+            "imei_number" => $this->imei
         ];
     }
 }

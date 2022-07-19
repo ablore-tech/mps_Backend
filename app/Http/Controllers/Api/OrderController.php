@@ -41,6 +41,7 @@ class OrderController extends Controller
         $order->phone_model_id = $request->input('phone_model_id');
         $order->price = $request->input('price');
         $order->status = config('settings.status.Pending');
+        $order->imei = $request->input('imei_number');
         
         $order->save();
 
