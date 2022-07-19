@@ -47,10 +47,10 @@
             </div>
 
             <div class="form-group row">
-                <label for="camera" class="col-md-4 col-form-label text-md-right">Camera</label>
+                <label for="special_offer_2" class="col-md-4 col-form-label text-md-right">Special Offer 2</label>
                 
                 <div class="col-md-6">
-                    <input id="camera" type="text" name="camera" class="form-control" required placeholder="Add camera details here">
+                    <input id="special_offer_2" type="text" name="special_offer_2" class="form-control" placeholder="Add special offer 2 details here">
                 </div>
             </div>
 

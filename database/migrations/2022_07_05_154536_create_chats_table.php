@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('admin_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->string('message')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ class StoreChatRequest extends FormRequest
     {
         return [
             'order_id' => ['required', Rule::exists('orders', 'id')],
-            'message' => ['required']
+            'message' => ['required'],
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }

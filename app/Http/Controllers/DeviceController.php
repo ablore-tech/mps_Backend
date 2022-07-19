@@ -65,7 +65,7 @@ class DeviceController extends Controller
             'variant_id' => $request->get('variant_id'),
             'price' => $request->get('device_price'),
             'special_offers' => $request->get('special_offer'),
-            'camera' => $request->get('camera')
+            'special_offers_2' => $request->get('special_offer_2')
         ]);
 
         foreach($request->get('question_prices') as $key => $price) 
