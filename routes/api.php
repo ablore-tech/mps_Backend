@@ -70,6 +70,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('chats/{order}', [ChatController::class, 'index']);
 
     Route::post('chats', [ChatController::class, 'store']);
+    
+    Route::post('order/dead-phone', [OrderController::class, 'deadPhone']);
+
+    Route::post('order/bulk-phone', [OrderController::class, 'bulkPhone']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
