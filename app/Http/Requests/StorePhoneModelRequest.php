@@ -29,7 +29,7 @@ class StorePhoneModelRequest extends FormRequest
         $validator->after(function ($validator) {
             if ($this->series_id) {
                 $series = Series::find($this->series_id);
-                if($series->brand_id !== $this->brand_id){
+                if($series->brand_id != $this->brand_id){
                     $validator->errors()->add('series', 'This series does not belong to selected brand');
                 }    
             }
