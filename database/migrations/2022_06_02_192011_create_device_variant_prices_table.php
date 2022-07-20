@@ -25,6 +25,7 @@ return new class extends Migration
             $table->longText('color')->nullable();
             $table->text('photo')->nullable();
             $table->text('specification')->nullable();
+            $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });
     }

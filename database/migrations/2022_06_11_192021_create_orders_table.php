@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();            
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('device_id')->references('id')->on('devices')->onDelete('cascade');
-            $table->foreignId('variant_id')->references('id')->on('variants')->onDelete('cascade');
-            $table->foreignId('phone_model_id')->references('id')->on('phone_models')->onDelete('cascade');
+            $table->foreignId('device_id')->nullable()->references('id')->on('devices')->onDelete('cascade');
+            $table->foreignId('variant_id')->nullable()->references('id')->on('variants')->onDelete('cascade');
+            $table->foreignId('phone_model_id')->nullable()->references('id')->on('phone_models')->onDelete('cascade');
             $table->decimal('price')->nullable();
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
