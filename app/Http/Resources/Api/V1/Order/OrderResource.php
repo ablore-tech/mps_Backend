@@ -17,14 +17,16 @@ class OrderResource extends JsonResource
         return [
             "id" => $this->id,
             "user_name" => $this->user->name,
-            "device_name" => $this->device->name,
-            "variant" => $this->variant->memory_size,
+            "device_name" => $this->device ? $this->device->name : null,
+            "variant" => $this->variant ? $this->variant->memory_size : null,
             "phone_model" => $this->phoneModel,
             "price" => $this->price,
             "status" => array_search($this->status, config('settings.status')) ? array_search($this->status, config('settings.status')) : 'Pending',
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
-            "imei_number" => $this->imei
+            "imei_number" => $this->imei,
+            "image" => $this->image,
+            "description" => $this->description
         ];
     }
 }
