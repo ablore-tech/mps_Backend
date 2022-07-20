@@ -15,6 +15,7 @@
                         <th scope="col">S.No</th>
                         <th scope="col">Order Number</th>
                         <th scope="col">User Name</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Device</th>
                         <th scope="col">Variant</th>
                         <th scope="col">Price</th>
@@ -33,8 +34,9 @@
                             <td> {{ ++$i }} </td>
                             <td> {{ $order->id }}</td>
                             <td> {{ $order->user->name }}</td>
-                            <td> {{ $order->device->name }}</td>
-                            <td> {{ $order->variant->memory_size }}</td>
+                            <td> {{ $order->description }} </td>
+                            <td> {{ $order->device ? $order->device->name : null }}</td>
+                            <td> {{ $order->variant ? $order->variant->memory_size : null }}</td>
                             <td> {{ $order->price }}</td>
                             <td> {{ array_search($order->status, config('settings.status')) }}</td>
                             <td> {{ $order->imei }}</td>

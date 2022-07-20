@@ -25,11 +25,19 @@
                 </div>
             </div>
 
+            <div class="form-group row mt-4">
+                <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
+                
+                <div class="col-md-6">
+                    {{$order->description}}
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label for="variant_id" class="col-md-4 col-form-label text-md-right">Variant</label>
                 
                 <div class="col-md-6">
-                    {{$order->variant->memory_size}}
+                    {{$order->variant ? $order->variant->memory_size : null}}
                 </div>
             </div>
 
@@ -37,31 +45,35 @@
                 <label for="device_price" class="col-md-4 col-form-label text-md-right">Device Name</label>
                 
                 <div class="col-md-6">
-                    {{$order->device->name}}                
+                    {{$order->device ? $order->device->name : null }}                
                 </div>
             </div>
 
-            @foreach($order->questionResponses as $questionResponse)
-                <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">{{ $questionResponse->question->description }}</label>
-                    
-                    <div class="col-md-6">
-                        {{ $questionResponse->answer === 1 ? "Yes" : "No" }}
+            @if($order->questionResponses)
+                @foreach($order->questionResponses as $questionResponse)
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-md-right">{{ $questionResponse->question->description }}</label>
+                        
+                        <div class="col-md-6">
+                            {{ $questionResponse->answer === 1 ? "Yes" : "No" }}
+                        </div>
                     </div>
-                </div>
-            @endforeach 
+                @endforeach 
+            @endif
 
-            @foreach($order->phoneProblemResponses as $phoneProblemResponse)
-                <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">{{ $phoneProblemResponse->phoneProblem->description }}</label>
-                    
-                    <div class="col-md-6">
-                        @foreach(json_decode($phoneProblemResponse->answers) as $answer)
-                            {{ $answer}}
-                        @endforeach             
+            @if($order->phoneProblemResponses)
+                @foreach($order->phoneProblemResponses as $phoneProblemResponse)
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-md-right">{{ $phoneProblemResponse->phoneProblem->description }}</label>
+                        
+                        <div class="col-md-6">
+                            @foreach(json_decode($phoneProblemResponse->answers) as $answer)
+                                {{ $answer}}
+                            @endforeach             
+                        </div>
                     </div>
-                </div>
-            @endforeach 
+                @endforeach 
+            @endif
 
             <div class="form-group row mb-0 mt-3">
                 <div class="col-md-4 offset-md-4">
