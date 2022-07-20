@@ -55,7 +55,7 @@ class DeviceController extends Controller
     {
         $phoneModel = PhoneModel::find($request->get('model_id'));
         
-        $device = Device::firstOrCreate([
+        $device = Device::create([
             'phone_model_id' => $phoneModel->id,
             'name' => $phoneModel->name,
         ]);
@@ -112,7 +112,11 @@ class DeviceController extends Controller
      */
     public function edit(Device $device)
     {
-        return view('devices.edit', compact('device'));
+    }
+
+    public function editDevice(Device $device, DeviceVariantPrice $deviceVariantPrice)
+    {
+        return view('devices.edit', compact(['device', 'deviceVariantPrice']));
     }
 
     /**
@@ -125,6 +129,37 @@ class DeviceController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function updateDevice(Request $request, Device $device, DeviceVariantPrice $deviceVariantPrice)
+    {
+        $deviceVariantPrice->update([
+            'status' => $request->get('status'),
+            'price' => $request->get('device_price'),
+            'special_offers' => $request->get('special_offer'),
+            'special_offers_2' => $request->get('special_offer_2'),
+        ]);
+
+
+        foreach($request->get('device_question_prices') as $key => $deviceQuestionPrice)
+        {
+            $questionPrice = DeviceQuestionPrice::find($key);
+
+            $questionPrice->update([
+                'price' => $deviceQuestionPrice
+            ]);
+        }
+
+        foreach($request->get('phone_problem_prices') as $key => $phoneProblemPrice)
+        {
+            $problemPrices = DevicePhoneProblemPrice::find($key);
+
+            $problemPrices->update([
+                'price' => $phoneProblemPrice
+            ]);
+        }
+
+        return back();
     }
 
     /**

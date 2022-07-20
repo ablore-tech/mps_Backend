@@ -51,6 +51,10 @@ Route::middleware(['auth'])->group(function() {
 
     Route::resource('/devices', DeviceController::class);
 
+    Route::get('/device/{device}/{deviceVariantPrice}', [DeviceController::class, 'editDevice']);
+
+    Route::post('/device/{device}/{deviceVariantPrice}', [DeviceController::class, 'updateDevice']);
+
     Route::post('/user/{user}', [UserController::class, 'update'])->name('update-profile');
 
     Route::resource('/orders', OrderController::class);

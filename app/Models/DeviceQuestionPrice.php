@@ -13,7 +13,7 @@ class DeviceQuestionPrice extends Model
 
     public function question()
     {
-        return $this->belongsToMany(Question::class);
+        return $this->belongsTo(Question::class);
     }
 
     public function device()

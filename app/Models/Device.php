@@ -21,6 +21,11 @@ class Device extends Model
         return $this->hasMany(DeviceQuestionPrice::class);
     }
 
+    public function devicePhoneProblemPrices()
+    {
+        return $this->hasMany(DevicePhoneProblemPrice::class);
+    }
+
     public function orders()
     {
         return $this->hasMany(Order::class);

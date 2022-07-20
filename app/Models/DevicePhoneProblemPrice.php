@@ -13,7 +13,12 @@ class DevicePhoneProblemPrice extends Model
 
     public function phoneProblem()
     {
-        return $this->belongsToMany(PhoneProblemOption::class);
+        return $this->belongsTo(PhoneProblem::class);
+    }
+
+    public function phoneProblemOption()
+    {
+        return $this->belongsTo(PhoneProblemOption::class);
     }
 
     public function device()
