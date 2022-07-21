@@ -5,7 +5,7 @@
 {{ method_field('PUT') }}
 {{ csrf_field() }}
     <div class="card" style="width: 100%">
-        <div class="card-header body_color text-center text-white"><h3>View Device details</h3></div>
+        <div class="card-header body_color text-center text-white"><h3>View Order details</h3></div>
         <div class="card-body">
             <div class="form-group row">
                 <label for="status" class="col-md-4 col-form-label text-md-right">Status</label>
@@ -68,7 +68,9 @@
                         
                         <div class="col-md-6">
                             @foreach(json_decode($phoneProblemResponse->answers) as $answer)
-                                {{ $answer}}
+                            {{ \App\Models\PhoneProblemOption::find($answer)->name }}
+                            <br>
+                            <br>
                             @endforeach             
                         </div>
                     </div>

@@ -12,6 +12,12 @@
                     <div class="col-md-6 ">
                         @if($chat->user_id)
                             {{ $chat->message }}    
+
+                            @if ($chat->image)
+                                
+                                <a href="{{asset('/storage'.$chat->image)}}"><img src="{{ asset('/storage'.$chat->image) }}" width="40" height="40"></a>
+                                @endif
+
                         @endif
                     </div>
                     <div class="col-md-6 ">
