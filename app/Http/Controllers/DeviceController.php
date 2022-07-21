@@ -133,7 +133,7 @@ class DeviceController extends Controller
 
     public function updateDevice(Request $request, Device $device, DeviceVariantPrice $deviceVariantPrice)
     {
-        $deviceVariantPrice->update([
+        $deviceVariantPrice->firstOrCreate([
             'status' => $request->get('status'),
             'price' => $request->get('device_price'),
             'special_offers' => $request->get('special_offer'),

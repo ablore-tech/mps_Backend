@@ -37,7 +37,7 @@ class ChatController extends Controller
 
         $chat = Chat::create([
             'user_id' => $request->user()->id,
-            'message' => $request->get('message') ? $request->get('message') : 'image',
+            'message' => $request->get('message'),
             'order_id' => $request->get('order_id'),
             'image' => $filePath
         ]);
