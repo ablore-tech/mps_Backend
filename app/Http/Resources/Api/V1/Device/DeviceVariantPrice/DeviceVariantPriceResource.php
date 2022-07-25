@@ -19,8 +19,6 @@ class DeviceVariantPriceResource extends JsonResource
             'device_id' => $this->device_id,
             'variant_id' => $this->variant_id,
             'price' => $this->price,
-            'device_uid' => $this->device_uid,
-            'imei_number' => $this->imei_number,
             'photo' => $this->photo,
             'color' => $this->color,
             'special_offers' => $this->special_offers,
