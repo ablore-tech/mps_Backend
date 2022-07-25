@@ -23,6 +23,8 @@ class DeviceVariantPriceResource extends JsonResource
             'imei_number' => $this->imei_number,
             'photo' => $this->photo,
             'color' => $this->color,
+            'special_offers' => $this->special_offers,
+            'special_offers_2' => $this->special_offers_2,
             'specification' => $this->specification,
             'memory_size' => $this->variant->memory_size,
             'unit' => $this->variant->unit

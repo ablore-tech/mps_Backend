@@ -37,4 +37,9 @@ public $guarded = ['id', 'created_at', 'updated_at'];
     {
         return $this->hasMany(Order::class);
     }
+
+    public function chats()
+    {
+        return $this->hasMany(Chat::class);
+    }
 }

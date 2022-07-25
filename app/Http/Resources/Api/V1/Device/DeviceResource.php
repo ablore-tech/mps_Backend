@@ -19,7 +19,6 @@ class DeviceResource extends JsonResource
             'id' => $this->id,
             'phone_model_id' => $this->phone_model_id,
             'name' => $this->name,
-            'special_offers' => $this->special_offers,
             'device_specification' => $this->device_specification,
             'device_variant_details' => new DeviceVariantPriceCollection($this->deviceVariantPrices)
         ];

@@ -16,7 +16,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Variant</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Order Number</th>
+                        <!-- <th scope="col">Order Number</th> -->
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -38,10 +38,10 @@
                                 <td> {{ $device->phoneModel->name }}</td>
                                 <td> {{ $deviceVariantPrice->variant->memory_size }}</td>
                                 <td> {{ $deviceVariantPrice->price }}</td>
-                                <td> {{ \App\Models\Order::where([
+                                <!-- <td> {{ \App\Models\Order::where([
                                     'device_id' => $device->id,
                                     'variant_id' => $deviceVariantPrice->variant->id
-                                    ])->pluck('id') }}</td>
+                                    ])->pluck('id') }}</td> -->
                                 <td> 
                                     <a class="btn btn-info" href="{{ url('device/'. $device->id .'/'. $deviceVariantPrice->id) }}">Edit </a>
                                     <!-- <a class="btn btn-info" href="{{ url('devices/'. $device->id) }}">View</a> -->
