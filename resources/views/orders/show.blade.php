@@ -49,6 +49,22 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="device_price" class="col-md-4 col-form-label text-md-right">Price</label>
+                
+                <div class="col-md-6">
+                    {{ $order->price }}        
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="device_price" class="col-md-4 col-form-label text-md-right">IMEI Number</label>
+                
+                <div class="col-md-6">
+                    {{ $order->imei }}                
+                </div>
+            </div>
+
             @if($order->questionResponses)
                 @foreach($order->questionResponses as $questionResponse)
                     <div class="form-group row">
