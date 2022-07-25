@@ -75,6 +75,8 @@ class OrderController extends Controller
      */
     public function deadPhone(StoreDeadPhoneRequest $request)
     {
+        $filePath = null;
+
         if($request->file('image'))
         {
             $image = $request->file('image');
@@ -115,6 +117,7 @@ class OrderController extends Controller
      */
     public function bulkPhone(StoreBulkPhoneRequest $request)
     {
+        $filePath = null;
         if($request->file('image'))
         {
             $image = $request->file('image');
