@@ -12,7 +12,7 @@
             <table class="table table-hover text-center table-bordered">
                 <thead>
                     <tr class="bg-info text-dark" style="height:60px">
-                        <th scope="col">S.No</th>
+                        <!-- <th scope="col">S.No</th> -->
                         <th scope="col">Order Number</th>
                         <th scope="col">User Name</th>
                         <th scope="col">Description</th>
@@ -31,7 +31,7 @@
                     @endphp
                     @foreach ($orders as $order)
                         <tr>
-                            <td> {{ ++$i }} </td>
+                            <!-- <td> {{ ++$i }} </td> -->
                             <td> {{ $order->id }}</td>
                             <td> {{ $order->user->name }}</td>
                             <td> {{ $order->description }} </td>
@@ -48,6 +48,8 @@
                     @endforeach
                 </tbody>
             </table>
+
+            {!! $orders->links() !!}
         </div>
     </div>
 </div>
